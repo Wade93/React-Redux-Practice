@@ -1,16 +1,24 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { Provider } from 'react-redux';
 import './App.css';
-import Posts from './components/Posts';
-import PostForm from './components/Postform'
 
-function App() {
-  return (
-    <div className="App">
-      <PostForm/>
-      <hr></hr>
-      <Posts/>
-    </div>
-  );
+import PostForm from './components/Postform';
+import Posts from './components/Posts';
+
+import store from './store';
+
+class App extends Component {
+  render() {
+    return (
+      <Provider store={store}>
+        <div className="App">
+          <PostForm/>
+          <hr></hr>
+          <Posts/>
+        </div>
+      </Provider>
+    );
+  }
 }
 
 export default App;
